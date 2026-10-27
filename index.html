@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Browser Navigation System Using Doubly Linked List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>Browser Navigation System Using Doubly Linked List</h1>
+    <p>A DSA mini project. Every page you visit becomes a node in a doubly linked list, so Back and Forward are just pointer moves.</p>
+  </header>
+
+  <main>
+
+    <!-- ===== Browser window ===== -->
+    <section id="browser" class="browser" aria-label="Browser simulation">
+      <div id="tabBar" class="tab-bar"></div>
+
+      <div class="toolbar">
+        <button id="backBtn" title="Back">&larr; Back</button>
+        <button id="forwardBtn" title="Forward">Forward &rarr;</button>
+        <button id="refreshBtn" title="Refresh">&#8635; Refresh</button>
+        <button id="clearPageBtn" title="Clear page and delete current node">
+    Clear Page
+</button>
+       <button id="homeBtn" title="Return to the New Tab page">&#8962; Home
+</button>
+
+        <button id="historyBtn" title="Browsing history">History</button>
+
+        <input id="urlInput" type="text" placeholder="Enter a URL, e.g. wikipedia.org" autocomplete="off">
+        <button id="visitBtn" class="primary">Visit</button>
+      </div>
+
+      <p id="statusMsg" class="status"></p>
+      <div id="page" class="viewport"></div>
+     
+<p class="note">
+  This is a browser navigation simulator using a Doubly Linked List.
+  External websites such as YouTube open in a separate browser tab
+  because many websites block iframe embedding.
+  Incognito mode prevents visits from being saved in this project's
+  history, but it is not a replacement for real browser privacy controls.
+</p>
+</section>
+
+    <!-- ===== Linked list visualization ===== -->
+    <section class="panel">
+      <h2>Linked list visualization</h2>
+      <p class="hint">Each box is a node. The highlighted node is <code>current</code>.</p>
+      <div id="listView" class="list-view"></div>
+      <div id="pointerInfo" class="pointer-info"></div>
+    </section>
+
+    <!-- ===== History ===== -->
+    <section class="panel">
+      <h2>Browsing history</h2>
+      <ol id="historyList" class="history"></ol>
+    </section>
+
+    <!-- ===== Academic comparison ===== -->
+    <section class="panel">
+      <h2>Singly vs Doubly Linked List</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Point</th>
+              <th>Singly Linked List</th>
+              <th>Doubly Linked List</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pointers per node</td>
+              <td>Only <code>next</code></td>
+              <td><code>prev</code> and <code>next</code></td>
+            </tr>
+            <tr>
+              <td>Move to next node</td>
+              <td>O(1)</td>
+              <td>O(1)</td>
+            </tr>
+            <tr>
+              <td>Move to previous node</td>
+              <td>O(n) in the worst case, because we must start from the head and walk forward</td>
+              <td>O(1) when the current node is known, because we follow <code>prev</code></td>
+            </tr>
+            <tr>
+              <td>Extra memory</td>
+              <td>Less</td>
+              <td>One extra pointer per node</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="points">
+        <li>A Singly Linked List has no direct pointer to the previous node.</li>
+        <li>To find the previous node in a Singly Linked List, we traverse from the head, which takes O(n) time in the worst case.</li>
+        <li>In a Doubly Linked List, moving to the previous node takes O(1) time when the current node is already known.</li>
+        <li>That is why a Doubly Linked List is more suitable for browser Back and Forward navigation.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>DSA Mini Project &middot; HTML, CSS and JavaScript only</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
